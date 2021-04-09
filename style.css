@@ -1,0 +1,48 @@
+* {
+    background-color: black;
+}
+#logo {
+    text-align: center;
+}
+body {
+    padding: 5% 5%;
+}
+#buttons {
+    padding-top: 5%;
+    text-align: center;
+}
+#query {
+    height: 7%;
+    width: 100%;
+    
+}
+input, #search-button {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+}
+input, select, textarea {
+    color: rgb(158, 155, 155);
+    text-align: center;
+    font-family:fantasy;
+    letter-spacing: 2px;
+}
+*:focus {
+    outline: none;
+}
+input::placeholder {
+    color: rgb(158, 155, 155);
+    text-align: center;
+    text-transform: uppercase;
+    font-family:fantasy;
+    letter-spacing: 2px;
+}
+#start-img {
+    width: 60%;
+    height: 80%;
+    cursor: pointer;
+}
+#thumb-container {
+    justify-content: space-between;
+}

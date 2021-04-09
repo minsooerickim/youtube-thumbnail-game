@@ -1,5 +1,5 @@
 //appending thumbnail pics prints in order
-function keyWordsearch() {
+function keyWordSearch() {
     gapi.client.setApiKey('AIzaSyBYRDGmU8l00ww9MrHfT_xYg4swNBw7iNM');
     gapi.client.load('youtube', 'v3', function() {
             makeRequest();
@@ -18,10 +18,10 @@ function makeRequest() {
     request.execute(function(response) {    
         const strRes = JSON.stringify(response.result);
         var dict = JSON.parse(strRes);
-        console.log(dict);
         parseVidId(dict);
         parseImage(dict);
     });
+    next();
 }
 
 function makeRequestViews(arrId) {
@@ -66,8 +66,6 @@ function parseViews(arryId, dict) {
         arrViews.push(item, items[item]);
     }
 
-    var num = 1;
-    var num1 = num.toString();
     for (var i = 0; i < arrViews.length; ++i) {
         viewCounts.push(arrViews[i].statistics)
     }
@@ -103,8 +101,20 @@ function createImage(arr, arrIds) {
         img = document.createElement('img');
         img.src = arr[i];
         img.id = arrIds[i];
-        document.body.appendChild(img);
+        // img.onclick = mostViews(this.id);
+        document.getElementById('thumb-container').appendChild(img);
     }
 }
 
-console.log(thumbDict)
+function next() {
+    console.log('yo')
+    //test if console.log('yo') prints after the images laod
+    //then go https://stackoverflow.com/questions/51660696/set-a-parameter-when-changing-a-button-onclick-function
+    //implement click then decide which one has the most views
+}
+
+function remove(el) {
+    var element = el;
+    element.remove();
+}
+
