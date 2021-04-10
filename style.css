@@ -8,7 +8,7 @@ body {
     padding: 5% 5%;
     position: relative;
 }
-#buttons {
+#buttons, #points {
     padding-top: 5%;
     text-align: center;
 }
@@ -33,6 +33,7 @@ input, select, textarea {
     outline: none;
 }
 input::placeholder {
+    font-size: larger;
     color: rgb(158, 155, 155);
     text-align: center;
     text-transform: uppercase;
@@ -47,23 +48,66 @@ input::placeholder {
 #thumb-container {
     display: flex;
     justify-content: space-around;
+
+    position: relative;
 }
 #thumb-container img {
     cursor: pointer;
 }
-
 .blur {
     filter: blur(5px);
 }
-
 .correct1 {
-    position: absolute;
-    width: 60%;
-    height: 60%;
+    position:absolute;
     top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    display: block;
-    z-index: 1;
+    left: 35px;
+    width: 70%;
+    height: 70%;
+    z-index: 100;
+    background: transparent url(imgs/check2.png) no-repeat;
+}
+.correct2 {
+    position:absolute;
+    top: 0px;
+    left: 600px;
+    width: 70%;
+    height: 70%;
+    z-index: 100;
+    background: transparent url(imgs/check2.png) no-repeat;
+}
+.correct3 {
+    position:absolute;
+    top: 0px;
+    left: 1170px;
+    width: 70%;
+    height: 70%;
+    z-index: 100;
+    background: transparent url(imgs/check2.png) no-repeat;
+}
+.wrong1 {
+    position:absolute;
+    top: 0px;
+    left: 35px;
+    width: 70%;
+    height: 70%;
+    z-index: 100;
+    background: transparent url(imgs/x3.png) no-repeat;
+}
+.wrong2 {
+    position:absolute;
+    top: 0px;
+    left: 600px;
+    width: 70%;
+    height: 70%;
+    z-index: 100;
+    background: transparent url(imgs/x3.png) no-repeat;
+}
+.wrong3 {
+    position:absolute;
+    top: 0px;
+    left: 1170px;
+    width: 70%;
+    height: 70%;
+    z-index: 100;
+    background: transparent url(imgs/x3.png) no-repeat;
 }
