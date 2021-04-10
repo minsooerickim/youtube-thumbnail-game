@@ -6,6 +6,7 @@
 }
 body {
     padding: 5% 5%;
+    position: relative;
 }
 #buttons {
     padding-top: 5%;
@@ -44,5 +45,25 @@ input::placeholder {
     cursor: pointer;
 }
 #thumb-container {
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-around;
+}
+#thumb-container img {
+    cursor: pointer;
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+.correct1 {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: block;
+    z-index: 1;
 }

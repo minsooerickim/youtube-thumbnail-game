@@ -1,10 +1,11 @@
 //appending thumbnail pics prints in order
 function keyWordSearch() {
     gapi.client.setApiKey('AIzaSyBYRDGmU8l00ww9MrHfT_xYg4swNBw7iNM');
-    gapi.client.load('youtube', 'v3', function() {
+    gapi.client.load('youtube', 'v1', function() {
             makeRequest();
             makeRequestViews();
     });
+    // next();
 }
 
 function makeRequest() {
@@ -21,7 +22,6 @@ function makeRequest() {
         parseVidId(dict);
         parseImage(dict);
     });
-    next();
 }
 
 function makeRequestViews(arrId) {
@@ -53,7 +53,10 @@ function parseVidId(dict) {
     }
 }
 
-let thumbDict = {}
+let bruhId = [];
+let bruhView = [];
+var thumbDict = {};
+// let views = [];
 //parsing views after request
 function parseViews(arryId, dict) {
     let arrViews = [];
@@ -72,13 +75,15 @@ function parseViews(arryId, dict) {
     
     views = (viewCounts["1"].viewCount);
     
-    thumbDict[arryId] = views;
+    bruhView.push(views.toString());
+    bruhId.push(arryId);
+    thumbDict[arryId + ""] = views;
 }
 
 //getting thumbnail
 function parseImage(dict) {
-    let arr = [];
     let arrIds = [];
+    let arr = [];
 
     var items = dict.items;
     
@@ -106,15 +111,65 @@ function createImage(arr, arrIds) {
     }
 }
 
-function next() {
-    console.log('yo')
-    //test if console.log('yo') prints after the images laod
-    //then go https://stackoverflow.com/questions/51660696/set-a-parameter-when-changing-a-button-onclick-function
-    //implement click then decide which one has the most views
-}
-
 function remove(el) {
     var element = el;
     element.remove();
 }
 
+function next() {
+    var winningIndex = getWinningIndex();
+    console.log(winningIndex);
+
+    console.log(thumbDict);
+    console.log(bruhId);
+    console.log(bruhView);
+
+    var thumb0 = document.getElementById(bruhId[0]);
+    var thumb1 = document.getElementById(bruhId[1]);
+    var thumb2 = document.getElementById(bruhId[2]);
+    
+    thumb0.onclick = function() {
+        thumb0.classList.add("blur");
+        thumb1.classList.add("blur");
+        thumb2.classList.add("blur");
+        console.log(bruhView[0]);
+
+
+            img = document.createElement('img');
+            img.src = "imgs/check.png";
+            img.classList.add(".correct1");
+
+            document.body.appendChild(img);
+            // document.getElementById('thumb-container').appendChild(img);
+        if (winningIndex == 0) {
+            //dynamically add fading filters (red, green) for wrong correct
+        }
+        //some function to display if correct or wrong
+    }
+    thumb1.onclick = function() {
+        thumb0.classList.add("blur");
+        thumb1.classList.add("blur");
+        thumb2.classList.add("blur");
+        console.log(bruhView[1]);
+        //some function to display if correct or wrong
+    }
+    thumb2.onclick = function() {
+
+        thumb0.classList.add("blur");
+        thumb1.classList.add("blur");
+        thumb2.classList.add("blur");
+        console.log(bruhView[2]);
+        //some function to display if correct or wrong
+    }
+    
+}
+
+function getWinningIndex() {
+    var highest = 0;
+    for (var i = 1; i < 3; ++i) {
+        if (parseInt(bruhView[i]) > parseInt(bruhView[highest])) {
+            highest = i;
+        }
+    }
+    return highest;
+}
