@@ -1,12 +1,31 @@
-* {
+/* * {
     background-color: black;
+    z-index: 1;
+} */
+body {
+    background-image: url("imgs/messi.png");
+    background-size: 100% 100%;
+    
+}
+#background-img {
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    height: 100%;
+    width: 100%;
+    opacity: 70%;
+    z-index: -1;
+    position: absolute;
 }
 #logo {
     text-align: center;
+    opacity: 100% !important;
+    
 }
 body {
     padding: 5% 5%;
     position: relative;
+    z-index: 100;
 }
 #buttons, #points, #goodJob {
     padding-top: 5%;
@@ -15,26 +34,30 @@ body {
 #query {
     height: 7%;
     width: 100%;
-    
+    z-index: 100;
+    background: transparent;
 }
 input, #search-button {
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
     border-bottom-style: hidden;
+    z-index: 100;
+    background: transparent;
 }
 input, select, textarea {
-    color: rgb(158, 155, 155);
+    color: rgb(255, 255, 255);
     text-align: center;
     font-family:fantasy;
     letter-spacing: 2px;
+    z-index: 100;
 }
 *:focus {
     outline: none;
 }
 input::placeholder {
     font-size: larger;
-    color: rgb(158, 155, 155);
+    color: rgb(255, 255, 255);
     text-align: center;
     text-transform: uppercase;
     font-family:fantasy;
@@ -48,7 +71,6 @@ input::placeholder {
 #thumb-container {
     display: flex;
     justify-content: space-around;
-
     position: relative;
 }
 #thumb-container img {

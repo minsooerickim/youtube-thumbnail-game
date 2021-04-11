@@ -121,7 +121,7 @@ function remove(el) {
     if (firstTime == 0) {
         //removing title
         var element = document.getElementById('logo');
-        element.remove();
+        element.innerHTML = "";
 
     //replacing start to next
         button = document.getElementById('start-img');
@@ -222,7 +222,7 @@ function next() {
             }
         }
 
-        if (counter == 2) {
+        if (counter == 6) {
             //remove next and query box
             queryBox = document.getElementById('boxNbutt');
             queryBox.remove();
@@ -238,9 +238,12 @@ function next() {
 
             //add something final a cute image or sum
             finalImage = document.createElement('img');
+            finalImage.style.paddingTop = '6.57%';
             finalImage.src = "imgs/gameOver.png";
             finalImage.style.paddingTop = "50px";
             document.getElementById('thumb-container').appendChild(finalImage);
+
+            document.getElementById('questionNumber').remove();
         }
     }
     thumb1.onclick = function() {
@@ -272,7 +275,7 @@ function next() {
             }
         }
 
-        if (counter == 2) {
+        if (counter == 6) {
             //remove next and query box
             queryBox = document.getElementById('boxNbutt');
             queryBox.remove();
@@ -288,8 +291,11 @@ function next() {
 
             //add something final a cute image or sum
             finalImage = document.createElement('img');
+            finalImage.style.paddingTop = '6.57%';
             finalImage.src = "imgs/gameOver.png";
             document.getElementById('thumb-container').appendChild(finalImage);
+            
+            document.getElementById('questionNumber').remove();
         }
     }
     thumb2.onclick = function() {
@@ -321,7 +327,7 @@ function next() {
             }
         }
 
-        if (counter == 2) {
+        if (counter == 6) {
             //remove next and query box
             queryBox = document.getElementById('boxNbutt');
             queryBox.remove();
@@ -337,8 +343,11 @@ function next() {
 
             //add something final a cute image or sum
             finalImage = document.createElement('img');
+            finalImage.style.paddingTop = '6.57%';
             finalImage.src = "imgs/gameOver.png";
             document.getElementById('thumb-container').appendChild(finalImage);
+
+            document.getElementById('questionNumber').remove();
         }
     }
 }
@@ -353,6 +362,7 @@ function getWinningIndex() {
 }
 
 var counter = 1;
+var pointCounter = 1;
 function removeThumbs() {
     //clearing previous thumbs
     document.getElementById('thumb-container').innerHTML = "";
@@ -362,6 +372,15 @@ function removeThumbs() {
     orderedIds = [];
     orderedViews = [];
 
+    if (counter != 1) {
+        document.getElementById('questionNumber').remove();
+    }
+
+    console.log('test');
+    questionNumber = document.createElement('img');
+    questionNumber.id = 'questionNumber';
+    questionNumber.src = "imgs/question/" + counter.toString() + ".png";
+    document.getElementById('buttons').prepend(questionNumber);
     // //restating placeholder value
     // textBox = getElementById('query');
     // textBox.placeholder = "TYPE A NEW WORD OR PHRASE HERE:)" 
@@ -371,19 +390,26 @@ function removeThumbs() {
 
     // }
     //adding points
-    if (counter == 1) {
+    if (pointCounter == 1) {
         point = document.createElement('img');
         point.setAttribute('id', 'pointSystem');
         point.src = "imgs/points/" + (counter - 1).toString() + ".png";
         document.getElementById('points').appendChild(point);
-        counter += 1;
+        pointCounter += 1;
     }
     if (correct == 1) {
         point = document.getElementById("pointSystem");
-        point.src = "imgs/points/" + (counter - 1).toString() + ".png";
+        point.src = "imgs/points/" + (pointCounter - 1).toString() + ".png";
 
-        console.log(counter);
-        counter = counter + 1;
+        pointCounter = pointCounter + 1;
         correct = 0;
+    }
+    counter++;
+}
+
+function checkQuery() {
+    var userInput = document.getElementById('query');
+    if (userInput.value == "") {
+        alert("TIP: Type something in the search box before proceeding for more interesting results!");
     }
 }

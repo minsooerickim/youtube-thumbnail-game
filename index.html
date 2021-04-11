@@ -9,15 +9,14 @@
 </head>
 
 <body>
-  
   <div id="logo">
     <img src="imgs/logo.png" alt="logo">
   </div>
 
   <div id="buttons">
     <label id="boxNbutt">
-      <input id="query" placeholder="type in something and click next!" type="text"/>
-      <button id="search-button" onclick="removeThumbs();keyWordSearch();remove(this);setTimeout(next, 1500)"><img id="start-img" src="imgs/startButton.png" alt="start"></button>
+      <input id="query" placeholder="type something here then start/next !" type="text"/>
+      <button id="search-button" onclick="checkQuery();removeThumbs();keyWordSearch();remove(this);setTimeout(next, 1500)"><img id="start-img" src="imgs/startButton.png" alt="start"></button>
     </label>
   </div>
   
