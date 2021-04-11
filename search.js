@@ -2,7 +2,7 @@
 //AIzaSyBSlP4gPCojbCgP0kns_XgvDAa38-sx4vg   (futuretubies)
 //AIzaSyBYRDGmU8l00ww9MrHfT_xYg4swNBw7iNM (minsooerickim)
 function keyWordSearch() {
-    gapi.client.setApiKey('AIzaSyBYRDGmU8l00ww9MrHfT_xYg4swNBw7iNM');
+    gapi.client.setApiKey('AIzaSyBSlP4gPCojbCgP0kns_XgvDAa38-sx4vg');
     gapi.client.load('youtube', 'v1', function() {
             makeRequest();
             makeRequestViews();
@@ -221,6 +221,27 @@ function next() {
                 document.getElementById('thumb-container').appendChild(img);
             }
         }
+
+        if (counter == 2) {
+            //remove next and query box
+            queryBox = document.getElementById('boxNbutt');
+            queryBox.remove();
+
+            //remove thumbnails
+            document.getElementById('thumb-container').innerHTML = "";
+
+            //add goodJob 
+            goodJob = document.createElement('img');
+            goodJob.setAttribute('id', 'goodJob');
+            goodJob.src = "imgs/goodJob.png";
+            document.getElementById('buttons').appendChild(goodJob);
+
+            //add something final a cute image or sum
+            finalImage = document.createElement('img');
+            finalImage.src = "imgs/gameOver.png";
+            finalImage.style.paddingTop = "50px";
+            document.getElementById('thumb-container').appendChild(finalImage);
+        }
     }
     thumb1.onclick = function() {
         thumb0.classList.add("blur");
@@ -249,6 +270,26 @@ function next() {
                 img.classList.add("correct3");
                 document.getElementById('thumb-container').appendChild(img);                
             }
+        }
+
+        if (counter == 2) {
+            //remove next and query box
+            queryBox = document.getElementById('boxNbutt');
+            queryBox.remove();
+
+            //remove thumbnails
+            document.getElementById('thumb-container').innerHTML = "";
+
+            //add goodJob 
+            goodJob = document.createElement('img');
+            goodJob.setAttribute('id', 'goodJob');
+            goodJob.src = "imgs/goodJob.png";
+            document.getElementById('buttons').appendChild(goodJob);
+
+            //add something final a cute image or sum
+            finalImage = document.createElement('img');
+            finalImage.src = "imgs/gameOver.png";
+            document.getElementById('thumb-container').appendChild(finalImage);
         }
     }
     thumb2.onclick = function() {
@@ -279,6 +320,26 @@ function next() {
                 document.getElementById('thumb-container').appendChild(img);                
             }
         }
+
+        if (counter == 2) {
+            //remove next and query box
+            queryBox = document.getElementById('boxNbutt');
+            queryBox.remove();
+
+            //remove thumbnails
+            document.getElementById('thumb-container').innerHTML = "";
+
+            //add goodJob 
+            goodJob = document.createElement('img');
+            goodJob.setAttribute('id', 'goodJob');
+            goodJob.src = "imgs/goodJob.png";
+            document.getElementById('buttons').appendChild(goodJob);
+
+            //add something final a cute image or sum
+            finalImage = document.createElement('img');
+            finalImage.src = "imgs/gameOver.png";
+            document.getElementById('thumb-container').appendChild(finalImage);
+        }
     }
 }
 function getWinningIndex() {
@@ -301,10 +362,14 @@ function removeThumbs() {
     orderedIds = [];
     orderedViews = [];
 
-    //restating placeholder value
-    placeHolder = getElementById('query');
-    placeHolder.placeholder = "TYPE A NEW WORD OR PHRASE HERE:)" //check if this works
+    // //restating placeholder value
+    // textBox = getElementById('query');
+    // textBox.placeholder = "TYPE A NEW WORD OR PHRASE HERE:)" 
 
+    // //last question
+    // if (counter == 2) {
+
+    // }
     //adding points
     if (counter == 1) {
         point = document.createElement('img');

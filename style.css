@@ -8,7 +8,7 @@ body {
     padding: 5% 5%;
     position: relative;
 }
-#buttons, #points {
+#buttons, #points, #goodJob {
     padding-top: 5%;
     text-align: center;
 }
